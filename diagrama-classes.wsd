@@ -1,17 +1,10 @@
 @startuml Diagrama de classes Botrix Ações
 
+Cliente -- Imovel
+Imovel -- TipoImovel
+Imovel -- Imagem
 
-Orcamento -- Cliente
-Orcamento -- OrcamentoItem
-Orcamento -- Usuario
-Orcamento -- FormaPagamento
-Orcamento -- Produto
 
-Pedido -- Cliente
-Pedido -- PedidoItem
-Pedido -- Usuario
-Pedido -- FormaPagamento
-Pedido -- Produto
 
 GrupoProduto -- Produto
 
@@ -25,7 +18,7 @@ class Usuario{
 
 class Cliente{
     Guid Id
-    bool Ativo
+    Guid ImovelId
     String Nome
     String RazaoSocial
     String CNPJ
@@ -34,86 +27,46 @@ class Cliente{
     String Numero
     String Complemento
     String Bairro
+    String EstadoId
     String CidadeId
     String CidadeNome
     String CEP
     String Fone
     String Email
-    Decimal Limite
 }
-
-class GrupoProduto{
+class Imovel {
     Guid Id
-    String Descricao    
-}
-
-class Produto{
-    Guid Id
-    String Nome
+    Guid ClienteId
+    Guid TipoImovelId
+    Guid ImagemId
+    String Rua
+    String Numero
+    String Complemento
+    String Bairro
+    String CEP
     String Descricao
-    Decimal Preco
+    String Finalidade
+    String Situacao
+    Decimal AreaContruida
+    Decimal AreaTotal
+    Decimal ValorVenda
+    Decimal ValorAluguel
+    Deciaml Dormitorios
+    Deciaml Suite
+    Decimal VagasGaragem
+}
+
+class TipoImovel{
+    Guid Id
+    Guid ImovelId
+    String Descricao
+}
+
+class Imagem{
+    Guid Id
+    Imovel ImovelId
     String UrlImagem
-}
-
-class FormaPagamento{
-    Guid Id
     String Descricao
-    String[] Dias
-    Decimal Desconto
-}
-
-class Orcamento{
-    Guid Id
-    DateTime DataOrcamento
-    Guid ClienteId
-    Guid UsuarioId
-    Guid FormaPagamentoId
-    String Observacao    
-    OrcamentoItem[] Itens
-    Decimal QuantidadeDeItens
-    Decimal PrecoUnitario
-    Decimal TotalItens
-    Decimal TotalDesconto
-    Decimal TotalProdutos
-}
-
-class OrcamentoItem{
-    Guid Id    
-    Guid OrcamentoId
-    Guid ProdutoId
-    String Observacao
-    Decimal Quantidade
-    Decimal PrecoUnitario
-    Decimal Desconto
-    Decimal TotalUnitario
-    Decimal TotalItem
-}
-
-class Pedido{
-    Guid Id
-    DateTime DataPedido
-    Guid ClienteId
-    Guid UsuarioId
-    Guid FormaPagamentoId
-    String Observacao    
-    PedidoItem[] Itens
-    Decimal QuantidadeDeItens
-    Decimal PrecoUnitario
-    Decimal TotalItens
-    Decimal TotalDesconto
-    Decimal TotalProdutos
-}
-
-class PedidoItem{
-    Guid Id    
-    Guid PedidoId
-    Guid ProdutoId
-    String Observacao
-    Decimal Quantidade
-    Decimal PrecoUnitario
-    Decimal Desconto
-    Decimal TotalUnitario
-    Decimal TotalItem
 }
 
 @enduml

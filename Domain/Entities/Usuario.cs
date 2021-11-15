@@ -14,7 +14,6 @@ namespace UStart.Domain.Entities
         public string Email { get; private set; }    
         public String Autenticacao { get; private set; }    
         public DateTime DataRegistro { get; private set; }    
-        
         public Usuario()
         {
             

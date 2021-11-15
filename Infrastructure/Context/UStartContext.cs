@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using UStart.Domain.Entities;
 using UStart.Infrastructure.Helpers;
-
 namespace UStart.Infrastructure.Context
 {
 
@@ -22,6 +21,8 @@ namespace UStart.Infrastructure.Context
         }
         
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+
 
         public override int SaveChanges()
         {           

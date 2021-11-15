@@ -18,7 +18,7 @@ namespace UStart.API.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/usuario")]
-    [Authorize]
+    // [Authorize]
     public class UsuarioController : ControllerBase
     {
         private readonly UsuarioWorkflow _usuarioWorkflow;
