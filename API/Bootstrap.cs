@@ -120,6 +120,8 @@ namespace UStart.API
             // Register your repositories here
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddTransient<IImovelRepository, ImovelRepository>();
+
 
         }
 
@@ -128,6 +130,7 @@ namespace UStart.API
             // Register your workflows here
             services.AddTransient<UsuarioWorkflow, UsuarioWorkflow>();
             services.AddTransient<ClienteWorkflow, ClienteWorkflow>();
+            services.AddTransient<ImovelWorkflow, ImovelWorkflow>();
         }
 
         public static void ConfigureAuthentication(IServiceCollection services, IConfiguration configuration)

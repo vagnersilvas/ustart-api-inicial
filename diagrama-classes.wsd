@@ -56,17 +56,17 @@ class Imovel {
     Decimal VagasGaragem
 }
 
-class TipoImovel{
-    Guid Id
-    Guid ImovelId
-    String Descricao
-}
+' class TipoImovel{
+'     Guid Id
+'     Guid ImovelId
+'     String Descricao
+' }
 
-class Imagem{
-    Guid Id
-    Imovel ImovelId
-    String UrlImagem
-    String Descricao
-}
+' class Imagem{
+'     Guid Id
+'     Imovel ImovelId
+'     String UrlImagem
+'     String Descricao
+' }
 
 @enduml

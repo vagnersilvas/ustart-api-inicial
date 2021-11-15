@@ -10,8 +10,8 @@ using UStart.Infrastructure.Context;
 namespace UStart.Infrastructure.Migrations
 {
     [DbContext(typeof(UStartContext))]
-    [Migration("20211115141905_cliente")]
-    partial class cliente
+    [Migration("20211115194038_imovel")]
+    partial class imovel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,6 +92,107 @@ namespace UStart.Infrastructure.Migrations
                         .HasName("pk_clientes");
 
                     b.ToTable("clientes");
+                });
+
+            modelBuilder.Entity("UStart.Domain.Entities.Imovel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<decimal>("AreaContruida")
+                        .HasColumnType("numeric")
+                        .HasColumnName("area_contruida");
+
+                    b.Property<decimal>("AreaTotal")
+                        .HasColumnType("numeric")
+                        .HasColumnName("area_total");
+
+                    b.Property<string>("Bairro")
+                        .HasColumnType("text")
+                        .HasColumnName("bairro");
+
+                    b.Property<string>("CEP")
+                        .HasColumnType("text")
+                        .HasColumnName("cep");
+
+                    b.Property<string>("CidadeId")
+                        .HasColumnType("text")
+                        .HasColumnName("cidade_id");
+
+                    b.Property<string>("CidadeNome")
+                        .HasColumnType("text")
+                        .HasColumnName("cidade_nome");
+
+                    b.Property<Guid>("ClienteId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("cliente_id");
+
+                    b.Property<string>("Complemento")
+                        .HasColumnType("text")
+                        .HasColumnName("complemento");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("text")
+                        .HasColumnName("descricao");
+
+                    b.Property<decimal>("Dormitorios")
+                        .HasColumnType("numeric")
+                        .HasColumnName("dormitorios");
+
+                    b.Property<string>("EstadoId")
+                        .HasColumnType("text")
+                        .HasColumnName("estado_id");
+
+                    b.Property<string>("Finalidade")
+                        .HasColumnType("text")
+                        .HasColumnName("finalidade");
+
+                    b.Property<string>("Numero")
+                        .HasColumnType("text")
+                        .HasColumnName("numero");
+
+                    b.Property<string>("Rua")
+                        .HasColumnType("text")
+                        .HasColumnName("rua");
+
+                    b.Property<string>("Situacao")
+                        .HasColumnType("text")
+                        .HasColumnName("situacao");
+
+                    b.Property<decimal>("Suite")
+                        .HasColumnType("numeric")
+                        .HasColumnName("suite");
+
+                    b.Property<string>("TipoImovel")
+                        .HasColumnType("text")
+                        .HasColumnName("tipo_imovel");
+
+                    b.Property<string>("UrlImagem")
+                        .HasColumnType("text")
+                        .HasColumnName("url_imagem");
+
+                    b.Property<Guid?>("UsuarioId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("usuario_id");
+
+                    b.Property<decimal>("VagasGaragem")
+                        .HasColumnType("numeric")
+                        .HasColumnName("vagas_garagem");
+
+                    b.Property<decimal>("ValorAluguel")
+                        .HasColumnType("numeric")
+                        .HasColumnName("valor_aluguel");
+
+                    b.Property<decimal>("ValorVenda")
+                        .HasColumnType("numeric")
+                        .HasColumnName("valor_venda");
+
+                    b.HasKey("Id")
+                        .HasName("pk_imoveis");
+
+                    b.ToTable("imoveis");
                 });
 
             modelBuilder.Entity("UStart.Domain.Entities.Usuario", b =>

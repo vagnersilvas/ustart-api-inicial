@@ -1,25 +1,27 @@
 using System;
+using UStart.Domain.Entities;
 
 namespace UStart.Domain.Commands
 {
     public class ClienteCommand
     {
-        public Guid Id { get; private set; }
-        public Guid? ImovelId { get; private set; }
-        public string Nome { get; private set; }
-        public string RazaoSocial { get; private set; }
-        public string CNPJ { get; private set; }
-        public string CPF { get; private set; }
-        public string Rua { get; private set; }
-        public string Numero { get; private set; }
-        public string Complemento { get; private set; }
-        public string Bairro { get; private set; }
-        public string EstadoId { get; private set; }
-        public string CidadeId { get; private set; }
-        public string CidadeNome { get; private set; }
-        public string CEP { get; private set; }
-        public string Fone { get; private set; }
-        public string Email { get; private set; }
+        public Guid Id { get; set; }
+        public Guid ImovelId { get; set; }
+        public Imovel Imovel { get; set; }
+        public string Nome { get; set; }
+        public string RazaoSocial { get; set; }
+        public string CNPJ { get; set; }
+        public string CPF { get; set; }
+        public string Rua { get; set; }
+        public string Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Bairro { get; set; }
+        public string EstadoId { get; set; }
+        public string CidadeId { get; set; }
+        public string CidadeNome { get; set; }
+        public string CEP { get; set; }
+        public string Fone { get; set; }
+        public string Email { get; set; }
 
     }
 }

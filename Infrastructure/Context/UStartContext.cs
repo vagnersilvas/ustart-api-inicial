@@ -20,6 +20,7 @@ namespace UStart.Infrastructure.Context
             base.OnConfiguring(optionsBuilder);
         }
         
+        public DbSet<Imovel> Imoveis { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
 
