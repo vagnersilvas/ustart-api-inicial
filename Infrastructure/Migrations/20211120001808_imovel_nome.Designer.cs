@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UStart.Infrastructure.Context;
@@ -9,9 +10,10 @@ using UStart.Infrastructure.Context;
 namespace UStart.Infrastructure.Migrations
 {
     [DbContext(typeof(UStartContext))]
-    partial class UStartContextModelSnapshot : ModelSnapshot
+    [Migration("20211120001808_imovel_nome")]
+    partial class imovel_nome
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,13 +125,9 @@ namespace UStart.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("cidade_nome");
 
-                    b.Property<Guid>("ClienteId")
+                    b.Property<Guid?>("ClienteId")
                         .HasColumnType("uuid")
                         .HasColumnName("cliente_id");
-
-                    b.Property<Guid?>("ClienteId1")
-                        .HasColumnType("uuid")
-                        .HasColumnName("cliente_id1");
 
                     b.Property<string>("Complemento")
                         .HasColumnType("text")
@@ -175,7 +173,7 @@ namespace UStart.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("url_imagem");
 
-                    b.Property<Guid>("UsuarioId")
+                    b.Property<Guid?>("UsuarioId")
                         .HasColumnType("uuid")
                         .HasColumnName("usuario_id");
 
@@ -193,12 +191,6 @@ namespace UStart.Infrastructure.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_imoveis");
-
-                    b.HasIndex("ClienteId1")
-                        .HasDatabaseName("ix_imoveis_cliente_id1");
-
-                    b.HasIndex("UsuarioId")
-                        .HasDatabaseName("ix_imoveis_usuario_id");
 
                     b.ToTable("imoveis");
                 });
@@ -234,25 +226,6 @@ namespace UStart.Infrastructure.Migrations
                         .HasName("pk_usuarios");
 
                     b.ToTable("usuarios");
-                });
-
-            modelBuilder.Entity("UStart.Domain.Entities.Imovel", b =>
-                {
-                    b.HasOne("UStart.Domain.Entities.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId1")
-                        .HasConstraintName("fk_imoveis_clientes_cliente_id1");
-
-                    b.HasOne("UStart.Domain.Entities.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .HasConstraintName("fk_imoveis_usuarios_usuario_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("Usuario");
                 });
 #pragma warning restore 612, 618
         }

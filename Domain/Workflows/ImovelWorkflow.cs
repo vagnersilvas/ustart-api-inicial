@@ -19,8 +19,14 @@ namespace UStart.Domain.Workflows
 
         public Imovel Add(ImovelCommand command)
         {
+
+            if (validarImovel(command) == false)
+            {
+                return null;
+            }
+
             var novoImovel = new Imovel(command);
-           _imovelRepository.Add(novoImovel);
+            _imovelRepository.Add(novoImovel);
             _unitOfWork.Commit();
 
             return novoImovel;
@@ -28,6 +34,12 @@ namespace UStart.Domain.Workflows
 
         public void Update(Guid id, ImovelCommand command)
         {
+
+            if (validarImovel(command) == false)
+            {
+                return;
+            }
+
             var imovel = _imovelRepository.ConsultarPorId(id);
             if (imovel != null)
             {
@@ -45,7 +57,6 @@ namespace UStart.Domain.Workflows
         {
             try
             {
-
                 var imovel = _imovelRepository.ConsultarPorId(id);
                 if (imovel == null)
                 {
@@ -65,6 +76,21 @@ namespace UStart.Domain.Workflows
                     AddException("Imovel", exp);
                 else throw;
             }
+        }
+
+        private bool validarImovel(ImovelCommand command)
+        {
+            if (string.IsNullOrEmpty(command.TipoImovel))
+            {
+                this.AddError("Tipo do imovel", "Tipo do imovel não informado");
+            }
+            if (command.ClienteId == Guid.Empty)
+            {
+                this.AddError("Cliente", "Cliente não informado");
+            }
+
+            return this.IsValid();
+
         }
     }
 }

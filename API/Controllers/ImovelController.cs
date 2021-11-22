@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using UStart.API.TokenHelper;
 using UStart.Domain.Commands;
 using UStart.Domain.Contracts.Repositories;
 using UStart.Domain.Workflows;
@@ -57,6 +58,7 @@ namespace UStart.API.Controllers
         [HttpPost]            
         public IActionResult Adicionar([FromBody] ImovelCommand command)
         {
+
             _imovelWorkflow.Add(command);
             if (_imovelWorkflow.IsValid())
             {
@@ -75,6 +77,8 @@ namespace UStart.API.Controllers
         [Route("{id}")]           
         public IActionResult Atualizar([FromRoute] Guid id, [FromBody] ImovelCommand command)
         {
+            // command.UsuarioId = new Guid(this.HttpContext.GetUsuarioId());
+
             _imovelWorkflow.Update(id, command);
             if (_imovelWorkflow.IsValid())
             {

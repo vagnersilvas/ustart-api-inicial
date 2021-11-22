@@ -10,6 +10,7 @@ namespace UStart.Domain.Contracts.Repositories
         Cliente ConsultarPorId(Guid id);
         void Delete(Cliente cliente);
         IEnumerable<Cliente> Pesquisar(string pesquisa);
+        IEnumerable<Cliente> RetornarTodos();
         void Update(Cliente cliente);
     }
 }

@@ -24,10 +24,9 @@ namespace UStart.Infrastructure.Repositories
             return _context.Clientes.FirstOrDefault(g => g.Id == id);
         }
 
-        public IEnumerable<Cliente> Pesquisar(string pesquisa)
+         public IEnumerable<Cliente> Pesquisar(string pesquisa)
         {
-            pesquisa = pesquisa != null ? pesquisa.ToLower() : string.Empty;
-
+            pesquisa = pesquisa != null ?  pesquisa.ToLower() : "";
             return _context
             .Clientes
             .Where(x => x.Nome.ToLower().Contains(pesquisa))
@@ -51,6 +50,12 @@ namespace UStart.Infrastructure.Repositories
                 _context.Clientes.Attach(cliente);
             }
             _context.Clientes.Remove(cliente);
+        }
+        public IEnumerable<Cliente> RetornarTodos()
+        {
+            return _context
+                .Clientes                
+                .ToList();
         }
     }
 }

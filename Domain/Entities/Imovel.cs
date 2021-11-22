@@ -7,7 +7,9 @@ namespace UStart.Domain.Entities
     {
         public Guid Id { get; private set; }
         public Guid ClienteId { get; private set; }
-        public Guid? UsuarioId { get; set; }        
+        public Cliente Cliente { get; private set; }
+        public Guid UsuarioId { get; private set; }
+        public Usuario Usuario { get; private set; }
         public String TipoImovel { get; private set; }
         public string UrlImagem { get; private set; }
         public String Rua { get; private set; }
@@ -48,7 +50,7 @@ namespace UStart.Domain.Entities
         private void AtualizarCampos(ImovelCommand command)
         {
             ClienteId = command.ClienteId;
-            UsuarioId = command.UsuarioId.HasValue ? command.UsuarioId.Value : Guid.Empty;                    
+            UsuarioId = command.UsuarioId.HasValue ? command.UsuarioId.Value : Guid.Empty;
             Rua = command.Rua;
             Numero = command.Numero;
             Complemento = command.Complemento;

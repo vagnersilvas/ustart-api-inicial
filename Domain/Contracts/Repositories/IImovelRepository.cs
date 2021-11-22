@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UStart.Domain.Entities;
+using UStart.Domain.Results;
 
 namespace UStart.Domain.Contracts.Repositories
 {
@@ -8,10 +9,11 @@ namespace UStart.Domain.Contracts.Repositories
     {
         void Add(Imovel Imovel);
         Imovel ConsultarPorId(Guid id);
-        void Delete(Imovel Imovel);
-        IEnumerable<Imovel> Pesquisar(string pesquisa);
+        ImovelResult GetOrcamentoResultPorId(Guid id);
         IEnumerable<Imovel> RetornarTodos();
+        IEnumerable<ImovelResult> Pesquisar(string pesquisa);
         void Update(Imovel Imovel);
+        void Delete(Imovel Imovel);
     }
 
 }
