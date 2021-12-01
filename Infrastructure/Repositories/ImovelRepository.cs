@@ -10,7 +10,7 @@ using UStart.Infrastructure.Context;
 
 namespace UStart.Infrastructure.Repositories
 {
-    
+
     public class ImovelRepository : IImovelRepository
     {
         private readonly UStartContext _context;
@@ -44,38 +44,36 @@ namespace UStart.Infrastructure.Repositories
             }
             _context.Imoveis.Remove(Imovel);
         }
-
+        public IEnumerable<Imovel> Pesquisar(string pesquisa)
+        {
+            pesquisa = pesquisa != null ? pesquisa.ToLower() : "";
+            return _context
+            .Imoveis
+            .Where(x =>x.TipoImovel.ToLower().Contains(pesquisa)
+            ||x.Finalidade.ToLower().Contains(pesquisa))
+            .ToList();
+        }
         public IEnumerable<Imovel> RetornarTodos()
         {
             return _context
                 .Imoveis
                 .ToList();
         }
-            public ImovelResult GetOrcamentoResultPorId(Guid id)
-        {
-            Imovel imovel = _context
-                .Imoveis
-                .Include(c => c.Cliente)
-                    .ThenInclude(p => p.Nome)                    
-                .Include(u => u.Usuario)
-                .FirstOrDefault(u => u.Id == id);
-            if (imovel  == null)
-            {
-                return null;
-            }
-            return new ImovelResult(imovel);
-        }
-         public IEnumerable<ImovelResult> Pesquisar(string pesquisa)
-        {
-            pesquisa = pesquisa != null ? pesquisa.ToLower() : "";
-            return _context
-            .Imoveis
-            .Include(c => c.Cliente)
-            .Include(f => f.TipoImovel)
-            .Where(x => x.Cliente.Nome.ToLower().Contains(pesquisa))
-            .Select(o => new ImovelResult(o))
-            .ToList();
-        }
+        // public ImovelResult GetImovelResultPorId(Guid id)
+        // {
+        //     Imovel imovel = _context
+        //         .Imoveis
+        //         .Include(c => c.Cliente)
+        //             .ThenInclude(p => p.Nome)
+        //         .Include(u => u.Usuario)
+        //         .FirstOrDefault(u => u.Id == id);
+        //     if (imovel == null)
+        //     {
+        //         return null;
+        //     }
+        //     return new ImovelResult(imovel);
+        // }
         
+
     }
 }

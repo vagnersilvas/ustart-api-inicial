@@ -21,7 +21,7 @@ namespace UStart.Domain.Commands
         public String Descricao { get; set; }
         public String Finalidade { get; set; }
         public String Situacao { get; set; }
-        public Decimal AreaContruida { get; set; }
+        public Decimal AreaConstruida { get; set; }
         public Decimal AreaTotal { get; set; }
         public Decimal ValorVenda { get; set; }
         public Decimal ValorAluguel { get; set; }

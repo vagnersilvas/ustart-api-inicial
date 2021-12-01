@@ -30,6 +30,6 @@ dotnet clean && dotnet build
 Como criar as migrations
 ```bash
 cd API
-dotnet ef migrations add imovel_v4 -c UStartContext --project ../Infrastructure/Infrastructure.csproj
+dotnet ef migrations add imovel_v5 -c UStartContext --project ../Infrastructure/Infrastructure.csproj
 dotnet ef migrations add cliente_v2 -c UStartContext --project ../Infrastructure/Infrastructure.csproj
 ```

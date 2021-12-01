@@ -25,7 +25,7 @@ namespace UStart.Domain.Results
         public String Descricao { get;  set; }
         public String Finalidade { get;  set; }
         public String Situacao { get;  set; }
-        public Decimal AreaContruida { get;  set; }
+        public Decimal AreaConstruida { get;  set; }
         public Decimal AreaTotal { get;  set; }
         public Decimal ValorVenda { get;  set; }
         public Decimal ValorAluguel { get;  set; }
@@ -44,7 +44,7 @@ namespace UStart.Domain.Results
             this.Cliente = imovel.Cliente;
             this.UsuarioId = imovel.UsuarioId;
             this.Usuario = new UsuarioResult(imovel.Usuario);
-            this.TipoImovel =
+            this.TipoImovel = imovel.TipoImovel;
             this.UrlImagem = imovel.UrlImagem;
             this.Rua = imovel.Rua;
             this.Numero = imovel.Numero;
@@ -57,9 +57,9 @@ namespace UStart.Domain.Results
             this.Descricao = imovel.Descricao;
             this.Finalidade = imovel.Finalidade;
             this.Situacao = imovel.Situacao;
-            this.AreaContruida = imovel.AreaContruida;
-            this.AreaTotal = imovel.AreaContruida;
-            this.ValorVenda = imovel.ValorAluguel;
+            this.AreaConstruida = imovel.AreaConstruida;
+            this.AreaTotal = imovel.AreaTotal;
+            this.ValorVenda = imovel.ValorVenda;
             this.ValorAluguel = imovel.ValorAluguel;
             this.Dormitorios = imovel.Dormitorios;
             this.Suite = imovel.Suite;

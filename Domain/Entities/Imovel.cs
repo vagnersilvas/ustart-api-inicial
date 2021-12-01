@@ -23,7 +23,7 @@ namespace UStart.Domain.Entities
         public String Descricao { get; private set; }
         public String Finalidade { get; private set; }
         public String Situacao { get; private set; }
-        public Decimal AreaContruida { get; private set; }
+        public Decimal AreaConstruida { get; private set; }
         public Decimal AreaTotal { get; private set; }
         public Decimal ValorVenda { get; private set; }
         public Decimal ValorAluguel { get; private set; }
@@ -62,11 +62,12 @@ namespace UStart.Domain.Entities
             Finalidade = command.Finalidade;
             Situacao = command.Situacao;
             Descricao = command.Descricao;
-            AreaContruida = command.AreaContruida;
+            AreaConstruida = command.AreaConstruida;
             AreaTotal = command.AreaTotal;
             ValorVenda = command.ValorVenda;
             ValorAluguel = command.ValorAluguel;
             Dormitorios = command.Dormitorios;
+            UrlImagem = command.UrlImagem;
             Suite = command.Suite;
             VagasGaragem = command.VagasGaragem;
         }

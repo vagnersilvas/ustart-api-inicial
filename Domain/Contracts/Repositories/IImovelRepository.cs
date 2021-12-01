@@ -9,9 +9,8 @@ namespace UStart.Domain.Contracts.Repositories
     {
         void Add(Imovel Imovel);
         Imovel ConsultarPorId(Guid id);
-        ImovelResult GetOrcamentoResultPorId(Guid id);
         IEnumerable<Imovel> RetornarTodos();
-        IEnumerable<ImovelResult> Pesquisar(string pesquisa);
+        IEnumerable<Imovel> Pesquisar(string pesquisa);
         void Update(Imovel Imovel);
         void Delete(Imovel Imovel);
     }

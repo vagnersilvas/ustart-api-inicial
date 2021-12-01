@@ -33,9 +33,10 @@ namespace UStart.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]        
-        public IActionResult Get()
+        
+         public IActionResult Get([FromQuery]string pesquisa)
         {
-            return Ok(_imovelRepository.RetornarTodos());
+            return Ok(_imovelRepository.Pesquisar(pesquisa));
         }
 
         /// <summary>

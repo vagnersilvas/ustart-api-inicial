@@ -28,11 +28,11 @@ namespace UStart.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Get()
+       
+        public IActionResult Get([FromQuery]string pesquisa)
         {
-            return Ok(_clienteRepository.RetornarTodos());
+            return Ok(_clienteRepository.Pesquisar(pesquisa));
         }
-
         /// <summary>
         /// Consultar apenas um grupo
         /// </summary>
